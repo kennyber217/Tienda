@@ -18,6 +18,13 @@
   <link rel="stylesheet" href="<?php echo base_url();?>assets/adminLTE/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url();?>assets/adminLTE/dist/css/adminlte.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="<?php echo base_url();?>assets/adminLTE/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="<?php echo base_url();?>assets/adminLTE/plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="<?php echo base_url();?>assets/adminLTE/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="<?php echo base_url();?>assets/css/custom.css">
 </head>
 <body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">

@@ -1,36 +1,49 @@
-// console.log(search);
-$.ajax({
-  url:base_url+'Tienda/'+'Search',
-  type:'post',
-  data: 
-  { 
-    search:search
-  },
-  beforeSend: function(e){
-    $('#load').addClass('load');
-  },
-  success: function(data){
-    var c = JSON.parse(data);
-    // console.log(c);
-    // Inicio con Datos        
-    c.forEach( function(i, indice, array) {
-      console.log(i);
-      $('#list_search').append(''+
-        '<div class="col-sm-4">'+
-          '<div class="card">'+
-            '<img src="'+i.imagen_url+'" class="card-img-top" alt="'+i.nombre+'">'+
-            '<div class="card-body">'+
-              '<h5 class="card-title">'+i.nombre+'</h5>'+
-              '<p class="card-text text-justify">'+i.descripcion+'</p>'+
-              '<a href="#" class="btn btn-primary">Ver Tienda</a>'+
-            '</div>'+
-          '</div>'+
-        '</div>'+
-      '');
-    });
-    $('#load').removeClass('load');
-  },
-  error: function(){
-    $('#load').removeClass('load');
-  }
-})
+window.onload = function() {
+  getTiendaByID(tienda_id);
+};
+
+function getTiendaByID(id){
+  $.ajax({
+    url:base_url+'Tienda/'+'getTiendaByID',
+    type:'post',
+    data: 
+    {
+      id:id
+    },
+    beforeSend: function(e){
+      $('#load').addClass('load');
+    },
+    success: function(data){
+      $('#load').removeClass('load');
+      var c = JSON.parse(data); 
+      // console.log(c);
+      c.forEach( function(i, indice, array) {
+        console.log(i);
+        $('#div_logo').append('<img src="'+i.imagen_url+'" class="product-image" alt="'+i.nombre+'Product Image"></img>');
+        $('#txt_titulo').text(i.nombre);
+        $('#tbl_data tbody').append(''+
+          '<tr>'+
+            '<td>Categoria: </td>'+
+            '<td>'+i.categoria_nom+'</td>'+
+          '</tr>'+
+          '<tr>'+
+            '<td>Telefono: </td>'+
+            '<td>'+i.telefono+'</td>'+
+          '</tr>'+
+          '<tr>'+
+            '<td>Celular: </td>'+
+            '<td>'+i.celular+'</td>'+
+          '</tr>'+
+          '<tr>'+
+            '<td>Dirección: </td>'+
+            '<td>'+i.direccion+'</td>'+
+          '</tr>'+
+        '');
+        $('#product-desc').append(i.descripcion);
+      })
+    },
+    error: function(){      
+      $('#load').removeClass('load');
+    }
+  });
+}

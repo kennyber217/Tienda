@@ -86,6 +86,7 @@ function getTiendasForHome(){
 
 function verTienda(tienda_id){
   console.log('tienda n: '+tienda_id);
+  location.href =base_url+"Tienda/tienda/"+tienda_id;
 }
 
 function verTiendas(){

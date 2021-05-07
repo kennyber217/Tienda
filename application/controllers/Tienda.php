@@ -6,6 +6,15 @@ class Tienda extends CI_Controller {
     $this->load->model('mTienda');
   }
 
+  public function tienda($tienda_id)
+  {  
+    $data['title']='Tienda V';
+    $data['tienda_id']=$tienda_id;
+    $this->load->view('extranet/layout/header.php');
+    $this->load->view('extranet/tienda.php',$data);
+    $this->load->view('extranet/layout/footer.php');
+  }
+
   public function listar($search)
   {  
     $data['title']='Tienda V';
@@ -31,15 +40,11 @@ class Tienda extends CI_Controller {
     echo json_encode($listar);
   }
   
-//   public function getTienda(){
-//     $listar=  $this->mTienda->getTienda();
-//     echo json_encode($listar);
-//   }
-  
-//   public function getTienda_forHomePage(){
-//     $listar=  $this->mTienda->getTienda_forHomePage();
-//     echo json_encode($listar);
-//   }
+  public function getTiendaByID(){
+    $id = $this->input->post('id');
+    $listar = $this->mTienda->getTiendaByID($id); 
+    echo json_encode($listar);  
+  }
 
 
 
