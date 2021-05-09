@@ -27,6 +27,7 @@
 <script src="<?php echo base_url();?>assets/adminLTE/dist/js/adminlte.min.js"></script>
 
 <script src="<?php echo base_url()?>js/extranet/home.js"></script>
+
 <?php if( $this->uri->segment(1)=='Tienda'){ ?>  
   <?php if( $this->uri->segment(2)=='listar'){ ?>
     <script>

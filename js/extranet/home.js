@@ -1,7 +1,7 @@
-window.onload = function() {
+// window.onload = function() {
   getCategoria();
   getTiendasForHome();
-};
+// };
 
 function random_bg_color() {
   var x = Math.floor(Math.random() * 256);

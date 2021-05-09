@@ -18,8 +18,8 @@ function getTiendaByID(id){
       var c = JSON.parse(data); 
       // console.log(c);
       c.forEach( function(i, indice, array) {
-        console.log(i);
-        $('#div_logo').append('<img src="'+i.imagen_url+'" class="product-image" alt="'+i.nombre+'Product Image"></img>');
+        // console.log(i);
+        $('#div_logo').append('<img src="'+i.imagen_url+'" class="product-image" alt="'+i.nombre+'Product Image" style="max-height: 400px;width: auto;"></img>');
         $('#txt_titulo').text(i.nombre);
         $('#tbl_data tbody').append(''+
           '<tr>'+

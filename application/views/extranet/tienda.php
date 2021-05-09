@@ -16,7 +16,7 @@
       <div class="card-body">
         <div class="row">
           <div class="col-12 col-sm-6">
-            <div class="col-12" id="div_logo">
+            <div class="col-12" id="div_logo" style="text-align:center;">
               <!-- <img src="../../dist/img/prod-1.jpg" class="product-image" alt="Product Image"> -->
             </div>
           </div>
