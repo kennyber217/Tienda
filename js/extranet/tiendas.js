@@ -14,7 +14,7 @@ $.ajax({
     // console.log(c);
     // Inicio con Datos        
     c.forEach( function(i, indice, array) {
-      console.log(i);
+      // console.log(i);
       $('#list_search').append(''+
         '<div class="col-sm-4">'+
           '<div class="card">'+
@@ -22,7 +22,7 @@ $.ajax({
             '<div class="card-body">'+
               '<h5 class="card-title">'+i.nombre+'</h5>'+
               '<p class="card-text text-justify">'+i.descripcion+'</p>'+
-              '<a href="#" class="btn btn-primary">Ver Tienda</a>'+
+              '<a href="'+base_url+"Tienda/tienda/"+i.tienda_id+'" class="btn btn-primary" >Ver Tienda</a>'+
             '</div>'+
           '</div>'+
         '</div>'+

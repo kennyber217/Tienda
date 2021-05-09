@@ -26,14 +26,14 @@ class Tienda extends CI_Controller {
 
   public function Search(){
     $param['search'] = $this->input->post('search');
-    if(is_numeric($param['search'])){
+    if(is_numeric($param['search'])){// si es numero puede ser todos los elementos o una categoria
       $param['search'] = (int)$param['search'];
-      if($param['search']!=0){
+      if($param['search']!=0){// si no es cero, busca por id de categoria
         $listar=  $this->mTienda->getTiendaByCategoria($param['search']);
-      }else{
+      }else{//busca todos las tiendas
         $listar=  $this->mTienda->getTienda();
       }     
-    }else{
+    }else{//si no esnumero entonces busca por nombre
       $param['search'];
       $listar=  $this->mTienda->getTiendaByName($param['search']);      
     }
