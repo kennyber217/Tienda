@@ -42,11 +42,13 @@ class mTienda extends CI_Model{
   }
 
   public function getTiendaByName($search){
-    $this->db->select("*");
+    $this->db->select("DISTINCT(tienda.tienda_id), tienda.*");
     $this->db->from("tienda");
-    $this->db->where("estado","1");
-    $this->db->where("trash","0");
-	  $this->db->like("nombre",$search, 'both');
+    $this->db->join("producto","tienda.tienda_id = producto.tienda_id", "inner");
+    $this->db->where("tienda.estado","1");
+    $this->db->where("tienda.trash","0");
+	  $this->db->like("tienda.nombre",$search, 'both');
+    $this->db->or_like("producto.nombre",$search, 'both');
     $resultado = $this->db->get();
   	return $resultado->result();
   }

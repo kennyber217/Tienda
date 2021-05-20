@@ -1,5 +1,6 @@
 // window.onload = function() {
   getCategoria();
+  getCategoriaProductos();
   getTiendasForHome();
 // };
 
@@ -27,8 +28,36 @@ function getCategoria(){
         // Inicio con Datos        
         c.forEach( function(i, indice, array) {
           // console.log(i);
-          $('#list_categorias_nav_bar').append(''+
+          $('#list_categorias_tiendas_nav_bar').append(''+
             '<li><a href="'+base_url+'Tienda/listar/'+i.categoria_id+'" class="dropdown-item">'+i.nombre+'</a></li>'+
+          '');
+        });
+      $('#load').removeClass('load');
+    },
+    error: function(){
+      $('#load').removeClass('load');
+    }
+  })
+}
+
+function getCategoriaProductos(){
+  $.ajax({
+    url:base_url+'cHome/'+'getCategoriaProductos',
+    type:'post',
+    data: 
+    { 
+    },
+    beforeSend: function(e){
+      $('#load').addClass('load');
+    },
+    success: function(data){
+      var c = JSON.parse(data);
+      // console.log(c);
+        // Inicio con Datos        
+        c.forEach( function(i, indice, array) {
+          // console.log(i);
+          $('#list_categorias_productos_nav_bar').append(''+
+            '<li><a href="'+base_url+'Tienda/productos/'+i.categoria_producto_id+'" class="dropdown-item">'+i.nombre+'</a></li>'+
           '');
         });
       $('#load').removeClass('load');
@@ -58,8 +87,8 @@ function getTiendasForHome(){
           $('#list_shop_demo').append(''+
             '<li class="store-item">'+
               '<a class="cpg-card" title="'+i.nombre+'" onClick="verTienda('+i.tienda_id+');">'+
-                '<div class="cpg-img-container" style="background-color: '+random_bg_color()+';">'+
-                  '<img src="'+i.imagen_url+'">'+
+                '<div class="cpg-img-container" style="text-align: center;background-color: '+random_bg_color()+';">'+
+                  '<img src="'+i.imagen_url+'" style="">'+
                 '</div>'+
                 '<h4 class="cpg-title">'+i.nombre+'</h4>'+
               '</a>'+

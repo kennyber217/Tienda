@@ -41,6 +41,18 @@
     </script>
     <script src="<?php echo base_url()?>js/extranet/tienda.js"></script>
   <?php } ?>
+  <?php if( $this->uri->segment(2)=='producto'){ ?>
+    <script>
+      var producto_id = "<?php echo $producto_id;?>";
+    </script>
+    <script src="<?php echo base_url()?>js/extranet/producto.js"></script>
+  <?php } ?>  
+  <?php if( $this->uri->segment(2)=='productos'){ ?>
+    <script>
+      var search = "<?php echo $search;?>";
+    </script>
+    <script src="<?php echo base_url()?>js/extranet/productos.js"></script>
+  <?php } ?>
 <?php } ?>
 
 </body>

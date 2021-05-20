@@ -5,6 +5,7 @@ class cHome extends CI_Controller {
     parent::__construct();
     $this->load->model('mTienda');
     $this->load->model('mCategoria');
+    $this->load->model('mCategoriaProducto');
   }
 
   public function index()
@@ -30,6 +31,10 @@ class cHome extends CI_Controller {
     echo json_encode($listar);
   }
   
+  public function getCategoriaProductos(){
+    $listar=  $this->mCategoriaProducto->getCategoriaProducto();
+    echo json_encode($listar);
+  }
 
 
 }

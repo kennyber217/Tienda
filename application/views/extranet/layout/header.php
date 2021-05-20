@@ -43,10 +43,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item dropdown">
-            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Categoria</a>
-            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow" id="list_categorias_nav_bar">
-              <!-- <li><a href="#" class="dropdown-item">Categoria 1</a></li>
-              <li><a href="#" class="dropdown-item">Categoria 2</a></li> -->
+            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Categoria Tienda</a>
+            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow" id="list_categorias_tiendas_nav_bar">
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a id="dropdownSubMenu2" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Categoria Producto</a>
+            <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow" id="list_categorias_productos_nav_bar">
             </ul>
           </li>
         </ul>

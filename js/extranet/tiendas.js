@@ -1,4 +1,3 @@
-
 $.ajax({
   url:base_url+'Tienda/'+'Search',
   type:'post',

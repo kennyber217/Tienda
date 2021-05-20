@@ -19,8 +19,10 @@ class cLogin extends CI_Controller {
       $array = json_decode(json_encode($listar[0]), true);
 			$s_usuario = array(
 				'user_id' => $array['usuario_id'],
-        'rol_id' => $array['rol_id'], 
-				'persona' => $array['persona']
+        'rol_id' => $array['rol_id'],
+        'apellido_paterno' => $array['apellido_paterno'],
+        'apellido_materno' => $array['apellido_materno'],
+        'nombre' => $array['nombre']
       );
 			$this->session->set_userdata($s_usuario);
       echo json_encode(true);
