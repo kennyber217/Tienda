@@ -4,7 +4,7 @@ class cProducto extends CI_Controller{
   function __construct() {
     parent::__construct();
       $this->load->model('mProducto');
-      //$this->load->model('mCategoria');
+      $this->load->model('mCategoriaProducto');
       if (!$this->session->userdata('user_id')) {
         redirect('cLogin');
       }
@@ -18,11 +18,8 @@ class cProducto extends CI_Controller{
     $this->load->view('intranet/layout/footer.php');
   }
   
-  public function getProductoByTienda(tienda_id){
-       if( $this->estado->tiendadata('estado')==1 ){
-      $producto_id = $this->estado->productodata('producto_id');
-      $listar = $this->mProducto->getProductoByTienda($producto_id);
-    }    
+  public function getProductoByTienda($tienda_id){
+    $listar = $this->mProducto->getProductoByTienda($tienda_id);
     echo json_encode($listar);
   }
 
@@ -51,8 +48,8 @@ class cProducto extends CI_Controller{
     echo json_encode($listar);  
   }
 
-  public function getCategoria(){
-    $listar=  $this->mCategoria->getCategoria();
+  public function getCategoriaProducto(){
+    $listar=  $this->mCategoriaProducto->getCategoriaProducto();
     echo json_encode($listar);
   }
   
@@ -62,7 +59,7 @@ class cProducto extends CI_Controller{
       'nombre' => $this->input->post('txt_nombre'),
       'imagen_url' => $this->input->post('txt_img_url'),
       'descripcion' => $this->input->post('txt_descripcion'),
-      'categoria_id' => $this->input->post('cbo_categoria') ,      
+      'categoria_id' => $this->input->post('cbo_categoria'),
       'Stock' => $this->input->post('stock'),
       'Precio' => $this->input->post('precio') 
     );
@@ -75,7 +72,7 @@ class cProducto extends CI_Controller{
         'nombre' => $this->input->post('txt_nombre'),
         'imagen_url' => $this->input->post('txt_img_url'),
         'descripcion' => $this->input->post('txt_descripcion'),
-        'categoria_id' => $this->input->post('cbo_categoria') ,      
+        'categoria_id' => $this->input->post('cbo_categoria'),      
         'Stock' => $this->input->post('stock'),
         'Precio' => $this->input->post('precio')
     );
