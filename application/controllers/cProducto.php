@@ -19,7 +19,8 @@ class cProducto extends CI_Controller{
     $this->load->view('intranet/layout/footer.php');
   }
   
-  public function getProductoByTienda($tienda_id){
+  public function getProductoByTienda(){
+    $tienda_id = $this->input->post('tienda_id');
     $listar = $this->mProducto->getProductoByTienda($tienda_id);
     echo json_encode($listar);
   }
@@ -57,25 +58,30 @@ class cProducto extends CI_Controller{
   public function updateProducto(){
     $id = $this->input->post('txt_id');
     $data = array(
-      'nombre' => $this->input->post('txt_nombre'),
-      'imagen_url' => $this->input->post('txt_img_url'),
+      'codigo' => $this->input->post('txt_codigo'),
+      'nombre' => $this->input->post('txt_nombre'),      
       'descripcion' => $this->input->post('txt_descripcion'),
-      'categoria_id' => $this->input->post('cbo_categoria'),
-      'Stock' => $this->input->post('stock'),
-      'Precio' => $this->input->post('precio') 
+      'categoria_producto_id' => $this->input->post('cbo_categoria_producto'),
+      'precioCompra' => $this->input->post('txt_precioCompra'),
+      'precioVenta' => $this->input->post('txt_precioVenta'),
+      'existencia' => $this->input->post('txt_existencia'),
+      'imagen_url' => $this->input->post('txt_img_url')
     );
-    $listar = $this->mTienda->updateProducto($id,$data); 
+    $listar = $this->mProducto->updateProducto($id,$data); 
     echo json_encode($listar);
   }
   
   public function setProducto(){
     $data = array(
-        'nombre' => $this->input->post('txt_nombre'),
-        'imagen_url' => $this->input->post('txt_img_url'),
-        'descripcion' => $this->input->post('txt_descripcion'),
-        'categoria_id' => $this->input->post('cbo_categoria'),      
-        'Stock' => $this->input->post('stock'),
-        'Precio' => $this->input->post('precio')
+      'tienda_id' => $this->input->post('tienda_id'),
+      'codigo' => $this->input->post('txt_codigo'),
+      'nombre' => $this->input->post('txt_nombre'),      
+      'descripcion' => $this->input->post('txt_descripcion'),
+      'categoria_producto_id' => $this->input->post('cbo_categoria_producto'),
+      'precioCompra' => $this->input->post('txt_precioCompra'),
+      'precioVenta' => $this->input->post('txt_precioVenta'),
+      'existencia' => $this->input->post('txt_existencia'),
+      'imagen_url' => $this->input->post('txt_img_url')
     );
     $listar = $this->mProducto->setProducto($data); 
     echo json_encode($listar);

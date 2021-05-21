@@ -1,9 +1,9 @@
 window.onload = function() {
-  listar_auditoria_Pag(1);
+  listar_tienda_Pag(1);
   getCategoria();
 };
 
-function listar_auditoria_Pag(pag){
+function listar_tienda_Pag(pag){
   listar_tienda(pag);
 }
 
@@ -29,7 +29,7 @@ function listar_tienda(pag){
         if( i.estado=='0' ){ estado = '<span class="circle_red" onClick="cambiarEstadoRegistro(\''+i.tienda_id+'\',\''+i.nombre+'\',1);"></span>'; }
         if( i.estado=='1' ){ estado = '<span class="circle_green" onClick="cambiarEstadoRegistro(\''+i.tienda_id+'\',\''+i.nombre+'\',0);"></span>'; }
         var option = ''+
-        '<a href="javascript: void(0)" type="button" onClick="verPoductos('+i.tienda_id+');">'+
+          '<a href="javascript: void(0)" type="button" onClick="verPoductos('+i.tienda_id+');">'+
             '<i class="fa fa-shopping-cart" title="PRoductos" style="color: blue;"></i>'+
           '</a>'+
           '&nbsp;&nbsp;&nbsp;'+
@@ -112,7 +112,7 @@ function cambiarEstadoRegistro(id,nombre,estado){
                   confirmButtonText: 'Ok',
                   timer: 1000
                 }).then((result) => {         
-                  listar_auditoria_Pag(1);
+                  listar_tienda_Pag(1);
                 })                     
               }
             },
@@ -217,7 +217,7 @@ function desactivarRegistro(id,nombre){
                   confirmButtonText: 'Ok',
                   timer: 1000
                 }).then((result) => {  
-                  listar_auditoria_Pag(1);
+                  listar_tienda_Pag(1);
                   $('#mFormRegistro').modal('hide');
                 })                     
               }
@@ -278,7 +278,7 @@ function editarRegistro(){
           confirmButtonText: 'Ok',
           timer: 1000
         }).then((result) => {
-          listar_auditoria_Pag(1);
+          listar_tienda_Pag(1);
           $('#mFormRegistro').modal('hide');
         })                     
       }
@@ -379,7 +379,7 @@ function nuevoRegistro(){
           confirmButtonText: 'Ok',
           timer: 1000
         }).then((result) => {
-          listar_auditoria_Pag(1);
+          listar_tienda_Pag(1);
           $('#mFormRegistro').modal('hide');
         })                     
       }

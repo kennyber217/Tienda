@@ -87,7 +87,7 @@ class Tienda extends CI_Controller {
 
   public function getProductoById(){
     $id = $this->input->post('id');
-    $listar = $this->mProducto->getProductoById($id); 
+    $listar = $this->mProducto->getProducto($id); 
     echo json_encode($listar);  
   }
   
