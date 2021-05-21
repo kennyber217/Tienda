@@ -10,8 +10,9 @@ class cProducto extends CI_Controller{
       }
   }
 
-  public function index(){
-    $data['title']='Producto V';
+  public function productos($tienda_id){
+    $data['title']='vShop';
+    $data['tienda_id']=$tienda_id;
     $this->load->view('intranet/layout/header.php');
     $this->load->view('intranet/layout/menu.php');
     $this->load->view('intranet/producto.php',$data);

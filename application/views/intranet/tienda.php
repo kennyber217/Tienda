@@ -27,12 +27,12 @@
                   <table class="table table-striped table-dark table-bordered" id="tbl_data">
                     <thead>
                       <tr class="text-center">
-                        <th style="width:  5;">N°</th>
-                        <th style="width: 15;">Nombre</th>
-                        <th style="width: 40;">Descripcion</th>
-                        <th style="width: 20;">Categoria</th>
-                        <th style="width: 10;">Estado</th>
-                        <th style="width: 10;">Accion</th>
+                        <th style="width:  5%;">N°</th>
+                        <th style="width: 10%;">Nombre</th>
+                        <th style="width: 60%;">Descripcion</th>
+                        <th style="width: 10%;">Categoria</th>
+                        <th style="width:  5%;">Estado</th>
+                        <th style="width: 10%;">Accion</th>
                       </tr>
                     </thead>
                     <tbody>

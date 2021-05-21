@@ -30,6 +30,13 @@
   <script src="<?php echo base_url()?>js/intranet/tienda.js"></script>
 <?php } ?>
 
+<?php if( $this->uri->segment(1)=='cProducto'){ ?>
+  <script>
+    var tienda_id = "<?php echo $tienda_id;?>";
+  </script>
+  <script src="<?php echo base_url()?>js/intranet/producto.js"></script>
+<?php } ?>
+
 <script>
   $(function () {
     //Initialize Select2 Elements
