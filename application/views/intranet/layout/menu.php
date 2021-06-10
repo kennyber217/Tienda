@@ -9,46 +9,43 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <!-- <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="far fa-user nav-icon"></i>
               <p>
-                Dashboard
+                <?php
+                  echo $this->session->userdata('nombre').' '.$this->session->userdata('apellido_paterno').' '.$this->session->userdata('apellido_materno');
+                ?>
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link">
+                <a href="<?php echo base_url();?>CUsuario" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p>Datos Generales</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="./index2.html" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v2</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
-                </a>
-              </li> -->
-              <li class="nav-item">
-                <a href="<?php echo base_url();?>cTienda" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Tienda</p>
-                </a>
-              </li>
-            </ul>
+            </ul>            
           </li>
+          <li class="nav-item">
+            <a href="<?php echo base_url();?>CTienda" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Tienda(s)</p>
+            </a>
+          </li>
+          <?php if( $this->session->userdata('rol_id')==1 ){ ?>
+          <li class="nav-item">
+            <a href="<?php echo base_url();?>CUsuario" class="nav-link">
+              <i class="far fa-user nav-icon"></i>
+              <p>Usuario(s)</p>
+            </a>
+          </li>
+          <?php } ?>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

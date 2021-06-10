@@ -79,7 +79,7 @@ class MTienda extends CI_Model{
   }
 
   public function setTienda($data){
-	$this->db->insert('tienda',$data);
+	  $this->db->insert('tienda',$data);
     return true;
   }
 

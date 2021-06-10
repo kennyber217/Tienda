@@ -39,6 +39,10 @@
   <script src="<?php echo base_url()?>js/intranet/producto.js"></script>
 <?php } ?>
 
+<?php if( $this->uri->segment(1)=='CUsuario'){ ?>
+  <script src="<?php echo base_url()?>js/intranet/usuario.js"></script>
+<?php } ?>
+
 <script>
   $(function () {
     //Initialize Select2 Elements

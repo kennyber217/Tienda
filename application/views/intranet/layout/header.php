@@ -52,6 +52,13 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
+        <a class="nav-link" role="button">
+        <?php
+          echo $this->session->userdata('apellido_paterno').' '.$this->session->userdata('apellido_materno').', '.$this->session->userdata('nombre');
+        ?>
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
         </a>

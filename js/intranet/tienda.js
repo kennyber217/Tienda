@@ -30,7 +30,7 @@ function listar_tienda(pag){
         if( i.estado=='1' ){ estado = '<span class="circle_green" onClick="cambiarEstadoRegistro(\''+i.tienda_id+'\',\''+i.nombre+'\',0);"></span>'; }
         var option = ''+
           '<a href="javascript: void(0)" type="button" onClick="verPoductos('+i.tienda_id+');">'+
-            '<i class="fa fa-shopping-cart" title="PRoductos" style="color: blue;"></i>'+
+            '<i class="fa fa-shopping-cart" title="Productos" style="color: blue;"></i>'+
           '</a>'+
           '&nbsp;&nbsp;&nbsp;'+
           '<a href="javascript: void(0)" type="button" onClick="mFormRegistro('+i.tienda_id+');">'+
