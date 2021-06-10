@@ -1,10 +1,10 @@
 <?php 
-class cProducto extends CI_Controller{
+class CProducto extends CI_Controller{
 
   function __construct() {
     parent::__construct();
-      $this->load->model('mProducto');
-      $this->load->model('mCategoriaProducto');
+      $this->load->model('MProducto');
+      $this->load->model('MCategoriaProducto');
       if (!$this->session->userdata('user_id')) {
         redirect('cLogin');
       }
@@ -21,7 +21,7 @@ class cProducto extends CI_Controller{
   
   public function getProductoByTienda(){
     $tienda_id = $this->input->post('tienda_id');
-    $listar = $this->mProducto->getProductoByTienda($tienda_id);
+    $listar = $this->MProducto->getProductoByTienda($tienda_id);
     echo json_encode($listar);
   }
 
@@ -31,7 +31,7 @@ class cProducto extends CI_Controller{
     $data = array(
 			'estado' => $estado
     );
-    $listar = $this->mProducto->updateProducto($id,$data); 
+    $listar = $this->MProducto->updateProducto($id,$data); 
     echo json_encode($listar);
   }
   
@@ -40,18 +40,18 @@ class cProducto extends CI_Controller{
     $data = array(
 			'trash' => '1'
     );
-    $listar = $this->mProducto->updateProducto($id,$data); 
+    $listar = $this->MProducto->updateProducto($id,$data); 
     echo json_encode($listar);
   }
 
   public function getProductoByID(){
     $id = $this->input->post('id');
-    $listar = $this->mProducto->getProductoByID($id); 
+    $listar = $this->MProducto->getProductoByID($id); 
     echo json_encode($listar);  
   }
 
   public function getCategoriaProducto(){
-    $listar=  $this->mCategoriaProducto->getCategoriaProducto();
+    $listar=  $this->MCategoriaProducto->getCategoriaProducto();
     echo json_encode($listar);
   }
   
@@ -67,7 +67,7 @@ class cProducto extends CI_Controller{
       'existencia' => $this->input->post('txt_existencia'),
       'imagen_url' => $this->input->post('txt_img_url')
     );
-    $listar = $this->mProducto->updateProducto($id,$data); 
+    $listar = $this->MProducto->updateProducto($id,$data); 
     echo json_encode($listar);
   }
   
@@ -83,7 +83,7 @@ class cProducto extends CI_Controller{
       'existencia' => $this->input->post('txt_existencia'),
       'imagen_url' => $this->input->post('txt_img_url')
     );
-    $listar = $this->mProducto->setProducto($data); 
+    $listar = $this->MProducto->setProducto($data); 
     echo json_encode($listar);
   }
 

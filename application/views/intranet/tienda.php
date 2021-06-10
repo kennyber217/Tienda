@@ -108,6 +108,14 @@
             <input type="text" class="form-control" id="txt_img_url" name="txt_img_url" autocomplete="off"/>
           </div>
         </div>
+        <div class="form-group row">
+          <label for="user" class="col-form-label col-sm-2">Mapa</label>
+          <div class="col-sm-10">
+            <div id="map" style="height: 400px;width: 100%;border: 1px solid black;"></div>
+            <input type="text" class="form-control" id="txt_Longitud" name="txt_Longitud" autocomplete="off" readonly/>
+            <input type="text" class="form-control" id="txt_Latitud" name="txt_Latitud" autocomplete="off" readonly/>
+          </div>
+        </div>       
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

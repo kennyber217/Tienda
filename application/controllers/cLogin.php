@@ -1,9 +1,9 @@
 <?php
-class cLogin extends CI_Controller {
+class CLogin extends CI_Controller {
 
   function __construct() {
     parent::__construct();
-    $this->load->model('mUsuario');
+    $this->load->model('MUsuario');
   }
 
 	public function index(){   
@@ -14,7 +14,7 @@ class cLogin extends CI_Controller {
   public function login(){
     $param['email'] = $this->input->post('email');
     $param['password'] = $this->input->post('password');
-    $listar=  $this->mUsuario->login($param);
+    $listar=  $this->MUsuario->login($param);
     if(count($listar)==1){
       $array = json_decode(json_encode($listar[0]), true);
 			$s_usuario = array(

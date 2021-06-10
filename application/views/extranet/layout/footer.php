@@ -40,6 +40,8 @@
       var tienda_id = "<?php echo $tienda_id;?>";
     </script>
     <script src="<?php echo base_url()?>js/extranet/tienda.js"></script>
+    <!--Google Map-->
+    <script src="https://maps.googleapis.com/maps/api/js?&libraries=geometry&callback=IniMap" type="text/javascript"></script>
   <?php } ?>
   <?php if( $this->uri->segment(2)=='producto'){ ?>
     <script>

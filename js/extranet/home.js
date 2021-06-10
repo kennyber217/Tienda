@@ -14,7 +14,7 @@ function random_bg_color() {
 
 function getCategoria(){
   $.ajax({
-    url:base_url+'cHome/'+'getCategoria',
+    url:base_url+'CHome/'+'getCategoria',
     type:'post',
     data: 
     { 
@@ -42,7 +42,7 @@ function getCategoria(){
 
 function getCategoriaProductos(){
   $.ajax({
-    url:base_url+'cHome/'+'getCategoriaProductos',
+    url:base_url+'CHome/'+'getCategoriaProductos',
     type:'post',
     data: 
     { 
@@ -70,7 +70,7 @@ function getCategoriaProductos(){
 
 function getTiendasForHome(){
   $.ajax({
-    url:base_url+'cHome/'+'getTienda_forHomePage',
+    url:base_url+'CHome/'+'getTienda_forHomePage',
     type:'post',
     data: 
     { 

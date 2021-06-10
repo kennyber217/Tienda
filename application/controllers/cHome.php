@@ -1,11 +1,11 @@
 <?php
-class cHome extends CI_Controller {
+class CHome extends CI_Controller {
 
   function __construct() {
     parent::__construct();
-    $this->load->model('mTienda');
-    $this->load->model('mCategoria');
-    $this->load->model('mCategoriaProducto');
+    $this->load->model('MTienda');
+    $this->load->model('MCategoria');
+    $this->load->model('MCategoriaProducto');
   }
 
   public function index()
@@ -17,22 +17,22 @@ class cHome extends CI_Controller {
   }
   
   public function getTienda(){
-    $listar=  $this->mTienda->getTienda();
+    $listar=  $this->MTienda->getTienda();
     echo json_encode($listar);
   }
   
   public function getTienda_forHomePage(){
-    $listar=  $this->mTienda->getTienda_forHomePage();
+    $listar=  $this->MTienda->getTienda_forHomePage();
     echo json_encode($listar);
   }
 
   public function getCategoria(){
-    $listar=  $this->mCategoria->getCategoria();
+    $listar=  $this->MCategoria->getCategoria();
     echo json_encode($listar);
   }
   
   public function getCategoriaProductos(){
-    $listar=  $this->mCategoriaProducto->getCategoriaProducto();
+    $listar=  $this->MCategoriaProducto->getCategoriaProducto();
     echo json_encode($listar);
   }
 

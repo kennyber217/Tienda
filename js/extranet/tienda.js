@@ -1,5 +1,5 @@
 window.onload = function() {
-  getTiendaByID(tienda_id);  
+  getTiendaByID(tienda_id);
 };
 
 function getTiendaByID(id){
@@ -19,6 +19,7 @@ function getTiendaByID(id){
       // console.log(c);
       c.forEach( function(i, indice, array) {
         // console.log(i);
+        Ubicacion(i.latitud,i.longitud);
         $('#div_logo').append('<img src="'+i.imagen_url+'" class="product-image" alt="'+i.nombre+'Product Image" style="max-height: 400px;width: auto;"></img>');
         $('#txt_titulo').text(i.nombre);
         $('#tbl_data tbody').append(''+
@@ -89,3 +90,41 @@ function verProducto(producto_id){
   console.log('producto n: '+producto_id);
   location.href =base_url+"Tienda/producto/"+producto_id;
 }
+
+// --------------------------------------------------------------MAPA----------------------------------------------------------------------------------
+var marker;
+var coords = {};
+var map;
+
+function IniMap(){
+  coords =  {lat: -12.045271, lng: -77.031479};
+  setMapa(coords);
+}
+
+function Ubicacion(latitud,longitud){
+  coords =  {lat: latitud, lng: longitud};
+  setMapa(coords);
+}
+
+function setMapa (coords){
+  map = new google.maps.Map(document.getElementById('map'),
+    {
+      zoom: 18,
+      scrollwheel: true,
+      center:new google.maps.LatLng(coords.lat,coords.lng),
+      mapTypeId: 'roadmap'
+    });
+  marker = new google.maps.Marker({
+    map: map,
+    draggable: false,
+    animation: google.maps.Animation.DROP,
+    position: new google.maps.LatLng(coords.lat,coords.lng),
+  });  
+  marker.addListener( 'dragend', function (event){
+    // $('#txt_Longitud').val(this.getPosition().lng());
+    // $('#txt_Latitud').val(this.getPosition().lat());
+    console.log('Longitud: '+this.getPosition().lng());
+    console.log('Latitud: '+this.getPosition().lat());
+  });
+}
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -1,5 +1,5 @@
 <?php
-class mUsuario extends CI_Model{
+class MUsuario extends CI_Model{
 
   public function login($param){
     $this->db->select("*");

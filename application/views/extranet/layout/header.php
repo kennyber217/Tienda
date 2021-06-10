@@ -22,7 +22,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="<?php echo base_url();?>assets/adminLTE/dist/css/adminlte.min.css">
   <!-- propio style -->
   <link rel="stylesheet" href="<?php echo base_url();?>assets/css/home.css">  
-
 </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">

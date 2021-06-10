@@ -1,10 +1,10 @@
 <?php 
-class cTienda extends CI_Controller{
+class CTienda extends CI_Controller{
 
   function __construct() {
     parent::__construct();
-      $this->load->model('mTienda');
-      $this->load->model('mCategoria');
+      $this->load->model('MTienda');
+      $this->load->model('MCategoria');
       if (!$this->session->userdata('user_id')) {
         redirect('cLogin');
       }
@@ -20,11 +20,11 @@ class cTienda extends CI_Controller{
   
   public function getTiendaByUser(){
     if( $this->session->userdata('rol_id')==1 ){//admin
-      $listar = $this->mTienda->getTiendaForAdmin();
+      $listar = $this->MTienda->getTiendaForAdmin();
     }
     if( $this->session->userdata('rol_id')==2 ){//user vendedor
       $user_id = $this->session->userdata('user_id');
-      $listar = $this->mTienda->getTiendaByUser($user_id);
+      $listar = $this->MTienda->getTiendaByUser($user_id);
     }    
     echo json_encode($listar);
   }
@@ -35,7 +35,7 @@ class cTienda extends CI_Controller{
     $data = array(
 			'estado' => $estado
     );
-    $listar = $this->mTienda->updateTienda($id,$data); 
+    $listar = $this->MTienda->updateTienda($id,$data); 
     echo json_encode($listar);
   }
   
@@ -44,18 +44,18 @@ class cTienda extends CI_Controller{
     $data = array(
 			'trash' => '1'
     );
-    $listar = $this->mTienda->updateTienda($id,$data); 
+    $listar = $this->MTienda->updateTienda($id,$data); 
     echo json_encode($listar);
   }
 
   public function getTiendaByID(){
     $id = $this->input->post('id');
-    $listar = $this->mTienda->getTiendaByID($id); 
+    $listar = $this->MTienda->getTiendaByID($id); 
     echo json_encode($listar);  
   }
 
   public function getCategoria(){
-    $listar=  $this->mCategoria->getCategoria();
+    $listar=  $this->MCategoria->getCategoria();
     echo json_encode($listar);
   }
   
@@ -68,9 +68,11 @@ class cTienda extends CI_Controller{
       'categoria_id' => $this->input->post('cbo_categoria') ,      
       'celular' => $this->input->post('txt_cel') ,
       'direccion' => $this->input->post('txt_direccion') ,
-      'telefono' => $this->input->post('txt_telefono')
+      'telefono' => $this->input->post('txt_telefono'),
+      'longitud' => $this->input->post('txt_Longitud'),
+      'latitud' => $this->input->post('txt_Latitud')
     );
-    $listar = $this->mTienda->updateTienda($id,$data); 
+    $listar = $this->MTienda->updateTienda($id,$data); 
     echo json_encode($listar);
   }
   
@@ -82,10 +84,12 @@ class cTienda extends CI_Controller{
       'categoria_id' => $this->input->post('cbo_categoria') ,      
       'celular' => $this->input->post('txt_cel') ,
       'direccion' => $this->input->post('txt_direccion') ,
-      'telefono' => $this->input->post('txt_telefono'),     
+      'telefono' => $this->input->post('txt_telefono'),
+      'longitud' => $this->input->post('txt_Longitud'),
+      'latitud' => $this->input->post('txt_Latitud'),
       'usuario_id' => $this->session->userdata('user_id')
     );
-    $listar = $this->mTienda->setTienda($data); 
+    $listar = $this->MTienda->setTienda($data); 
     echo json_encode($listar);
   }
 

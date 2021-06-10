@@ -26,11 +26,13 @@
 <!-- AdminLTE App -->
 <script src="<?php echo base_url();?>assets/adminLTE/dist/js/adminlte.js"></script>
 
-<?php if( $this->uri->segment(1)=='cTienda'){ ?>  
+<?php if( $this->uri->segment(1)=='CTienda'){ ?>  
   <script src="<?php echo base_url()?>js/intranet/tienda.js"></script>
+ <!--Google Map-->
+ <script src="https://maps.googleapis.com/maps/api/js?&libraries=geometry&callback=IniMap" type="text/javascript"></script>
 <?php } ?>
 
-<?php if( $this->uri->segment(1)=='cProducto'){ ?>
+<?php if( $this->uri->segment(1)=='CProducto'){ ?>
   <script>
     var tienda_id = "<?php echo $tienda_id;?>";
   </script>

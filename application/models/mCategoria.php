@@ -1,5 +1,5 @@
 <?php
-class mCategoria extends CI_Model{
+class MCategoria extends CI_Model{
 
   public function getCategoria(){
     $this->db->select("*");

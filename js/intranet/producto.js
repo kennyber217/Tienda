@@ -9,7 +9,7 @@ function listar_producto_Pag(pag){
 
 function listar_producto(pag){
   $.ajax({
-    url:base_url+'cProducto/'+'getProductoByTienda',
+    url:base_url+'CProducto/'+'getProductoByTienda',
     type:'post',
     data: 
     {
@@ -60,7 +60,7 @@ function listar_producto(pag){
 
 function getCategoriaProducto(){
   $.ajax({
-    url:base_url+'cProducto/'+'getCategoriaProducto',
+    url:base_url+'CProducto/'+'getCategoriaProducto',
     type:'post',
     data: 
     {
@@ -105,7 +105,7 @@ function cambiarEstadoRegistro(id,nombre,estado){
       }).then((result) => {
         if (result.value) {
           $.ajax({
-            url:base_url+'cProducto/'+'change_estado_registro',
+            url:base_url+'CProducto/'+'change_estado_registro',
             type:'post',
             data: 
             {
@@ -171,7 +171,7 @@ function desactivarRegistro(id,nombre){
       }).then((result) => {
         if (result.value) {
           $.ajax({
-            url:base_url+'cProducto/'+'desactivar_registro',
+            url:base_url+'CProducto/'+'desactivar_registro',
             type:'post',
             data: 
             {
@@ -217,7 +217,7 @@ function desactivarRegistro(id,nombre){
 
 function mFormRegistro(id){
   $.ajax({
-    url:base_url+'cProducto/'+'getProductoByID',
+    url:base_url+'CProducto/'+'getProductoByID',
     type:'post',
     data: 
     {
@@ -287,7 +287,7 @@ function editarRegistro(){
   var txt_existencia = $('#txt_existencia').val();
   var txt_img_url = $('#txt_img_url').val();
   $.ajax({
-    url:base_url+'cProducto/'+'updateProducto',
+    url:base_url+'CProducto/'+'updateProducto',
     type:'post',
     data: 
     {
@@ -345,7 +345,7 @@ function nuevoRegistro(){
   var txt_existencia = $('#txt_existencia').val();
   var txt_img_url = $('#txt_img_url').val();
   $.ajax({
-    url:base_url+'cProducto/'+'setProducto',
+    url:base_url+'CProducto/'+'setProducto',
     type:'post',
     data: 
     {

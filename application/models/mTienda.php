@@ -1,5 +1,5 @@
 <?php
-class mTienda extends CI_Model{
+class MTienda extends CI_Model{
 
   public function getTienda(){
     $this->db->select("*");

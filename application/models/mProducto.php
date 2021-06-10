@@ -1,5 +1,5 @@
 <?php
-class mProducto extends CI_Model{
+class MProducto extends CI_Model{
   /* Inicio metodos Kenny */
   public function getProductoByTiendaId($id){
     $this->db->select("*");

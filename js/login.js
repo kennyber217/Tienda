@@ -20,7 +20,7 @@ function validarLogin(){
 
 function login(email,password){
   $.ajax({
-    url:base_url+'cLogin/'+'login',
+    url:base_url+'CLogin/'+'login',
     type:'post',
     data: 
     { 
@@ -34,7 +34,7 @@ function login(email,password){
       var c = JSON.parse(data);
       // console.log(c);
       if(c){
-        location.href =base_url+"cTienda";
+        location.href =base_url+"CTienda";
       }else{
         alert('Usuario no valido.');
       }

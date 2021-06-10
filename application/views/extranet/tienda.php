@@ -45,6 +45,9 @@
             <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab"> </div>
           </div>
         </div>
+
+        <div id="map" style="height: 400px;width: 100%;border: 1px solid black;"></div>
+
         <div class="home-guest-container">
           <div class="cpgs-container">
             <h2 class="title"> Nuestros Productos</h2>

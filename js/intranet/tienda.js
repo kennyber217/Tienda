@@ -9,7 +9,7 @@ function listar_tienda_Pag(pag){
 
 function listar_tienda(pag){
   $.ajax({
-    url:base_url+'cTienda/'+'getTiendaByUser',
+    url:base_url+'CTienda/'+'getTiendaByUser',
     type:'post',
     data: 
     { 
@@ -82,7 +82,7 @@ function cambiarEstadoRegistro(id,nombre,estado){
       }).then((result) => {
         if (result.value) {
           $.ajax({
-            url:base_url+'cTienda/'+'change_estado_registro',
+            url:base_url+'CTienda/'+'change_estado_registro',
             type:'post',
             data: 
             {
@@ -128,7 +128,7 @@ function cambiarEstadoRegistro(id,nombre,estado){
 
 function mFormRegistro(id){
   $.ajax({
-    url:base_url+'cTienda/'+'getTiendaByID',
+    url:base_url+'CTienda/'+'getTiendaByID',
     type:'post',
     data: 
     {
@@ -155,8 +155,9 @@ function mFormRegistro(id){
         $('#txt_cel').val(i.celular);
         $('#txt_direccion').val(i.direccion);
         $('#txt_telefono').val(i.telefono);
-        // longitud
-        // latitud        
+        $('#txt_Longitud').val(i.longitud);
+        $('#txt_Latitud').val(i.latitud);
+        Ubicacion(i.latitud,i.longitud);
         $('#mFormRegistro').modal('toggle');
       })
     },
@@ -188,7 +189,7 @@ function desactivarRegistro(id,nombre){
       }).then((result) => {
         if (result.value) {
           $.ajax({
-            url:base_url+'cTienda/'+'desactivar_registro',
+            url:base_url+'CTienda/'+'desactivar_registro',
             type:'post',
             data: 
             {
@@ -241,8 +242,10 @@ function editarRegistro(){
   var txt_cel = $('#txt_cel').val();
   var txt_direccion = $('#txt_direccion').val();
   var txt_telefono = $('#txt_telefono').val();
+  var txt_Longitud = $('#txt_Longitud').val();
+  var txt_Latitud = $('#txt_Latitud').val();
   $.ajax({
-    url:base_url+'cTienda/'+'updateTienda',
+    url:base_url+'CTienda/'+'updateTienda',
     type:'post',
     data: 
     {
@@ -253,7 +256,9 @@ function editarRegistro(){
       txt_img_url:txt_img_url,
       txt_cel:txt_cel,
       txt_direccion:txt_direccion,
-      txt_telefono:txt_telefono
+      txt_telefono:txt_telefono,
+      txt_Longitud:txt_Longitud,
+      txt_Latitud:txt_Latitud
     },
     beforeSend: function(e){
       $('#load').addClass('load');
@@ -291,7 +296,7 @@ function editarRegistro(){
 
 function getCategoria(){
   $.ajax({
-    url:base_url+'cTienda/'+'getCategoria',
+    url:base_url+'CTienda/'+'getCategoria',
     type:'post',
     data: 
     {
@@ -333,6 +338,8 @@ function limpiarFormRegistro(){
   $('#txt_cel').val('');
   $('#txt_direccion').val('');
   $('#txt_telefono').val('');
+  $('#txt_Longitud').val('');
+  $('#txt_Latitud').val('');
 }
 
 function nuevoRegistro(){
@@ -343,8 +350,10 @@ function nuevoRegistro(){
   var txt_cel = $('#txt_cel').val();
   var txt_direccion = $('#txt_direccion').val();
   var txt_telefono = $('#txt_telefono').val();
+  var txt_Longitud = $('#txt_Longitud').val();
+  var txt_Latitud = $('#txt_Latitud').val();
   $.ajax({
-    url:base_url+'cTienda/'+'setTienda',
+    url:base_url+'CTienda/'+'setTienda',
     type:'post',
     data: 
     {
@@ -354,7 +363,9 @@ function nuevoRegistro(){
       txt_img_url:txt_img_url,
       txt_cel:txt_cel,
       txt_direccion:txt_direccion,
-      txt_telefono:txt_telefono
+      txt_telefono:txt_telefono,
+      txt_Longitud:txt_Longitud,
+      txt_Latitud:txt_Latitud
     },
     beforeSend: function(e){
       $('#load').addClass('load');
@@ -391,5 +402,42 @@ function nuevoRegistro(){
 }
 
 function verPoductos(tienda_id){
-  location.href =base_url+"cProducto/productos/"+tienda_id;
+  location.href =base_url+"CProducto/productos/"+tienda_id;
 }
+
+
+// --------------------------------------------------------------MAPA----------------------------------------------------------------------------------
+var marker;
+var coords = {};
+var map;
+
+function IniMap(){
+  coords =  {lat: -12.045271, lng: -77.031479};
+  setMapa(coords);
+}
+
+function Ubicacion(latitud,longitud){
+  coords =  {lat: latitud, lng: longitud};
+  setMapa(coords);
+}
+
+function setMapa (coords){
+  map = new google.maps.Map(document.getElementById('map'),
+    {
+      zoom: 18,
+      scrollwheel: true,
+      center:new google.maps.LatLng(coords.lat,coords.lng),
+      mapTypeId: 'roadmap'
+    });
+  marker = new google.maps.Marker({
+    map: map,
+    draggable: true,
+    animation: google.maps.Animation.DROP,
+    position: new google.maps.LatLng(coords.lat,coords.lng),
+  });  
+  marker.addListener( 'dragend', function (event){
+    $('#txt_Longitud').val(this.getPosition().lng());
+    $('#txt_Latitud').val(this.getPosition().lat());
+  });
+}
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------------
