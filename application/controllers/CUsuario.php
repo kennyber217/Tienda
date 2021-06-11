@@ -9,11 +9,19 @@ class CUsuario extends CI_Controller{
       }
   }
 
-  public function index(){
+  public function bandeja(){
     $data['title']='Tienda V';
     $this->load->view('intranet/layout/header.php');
     $this->load->view('intranet/layout/menu.php');
     $this->load->view('intranet/usuario.php',$data);
+    $this->load->view('intranet/layout/footer.php');
+  }
+  
+  public function perfil(){
+    $data['title']='Tienda V';
+    $this->load->view('intranet/layout/header.php');
+    $this->load->view('intranet/layout/menu.php');
+    $this->load->view('intranet/usuario_perfil.php',$data);
     $this->load->view('intranet/layout/footer.php');
   }
 
@@ -22,6 +30,12 @@ class CUsuario extends CI_Controller{
     echo json_encode($listar);
   }
   
+  public function getUsuarioData(){
+    $id = $this->session->userdata('user_id');
+    $listar = $this->MUsuario->getUsuarioByID($id);
+    echo json_encode($listar);
+  }
+
   public function getUsuarioByID(){
     $id = $this->input->post('id');
     $listar = $this->MUsuario->getUsuarioByID($id);

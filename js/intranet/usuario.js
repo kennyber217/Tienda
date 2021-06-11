@@ -300,7 +300,7 @@ function mFormRegistro(id){
       var c = JSON.parse(data); 
       // console.log(c);
       c.forEach( function(i, indice, array) {
-        console.log(i);
+        // console.log(i);
         $('#txt_id').val(i.usuario_id);
         $('#txt_email').val(i.email);
         $('#txt_nombre').val(i.nombre);

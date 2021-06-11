@@ -25,7 +25,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo base_url();?>CUsuario" class="nav-link">
+                <a href="<?php echo base_url();?>CUsuario/perfil" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Datos Generales</p>
                 </a>
@@ -40,7 +40,7 @@
           </li>
           <?php if( $this->session->userdata('rol_id')==1 ){ ?>
           <li class="nav-item">
-            <a href="<?php echo base_url();?>CUsuario" class="nav-link">
+            <a href="<?php echo base_url();?>CUsuario/bandeja" class="nav-link">
               <i class="far fa-user nav-icon"></i>
               <p>Usuario(s)</p>
             </a>
