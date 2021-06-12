@@ -70,6 +70,20 @@ class CUsuario extends CI_Controller{
     echo json_encode($listar);
   }
 
+  public function updateUsuarioData(){
+    $id = $this->input->post('txt_id');
+    $data = array(
+      'email' => $this->input->post('txt_email'),
+      'nombre' => $this->input->post('txt_nombre'),
+      'apellido_paterno' => $this->input->post('txt_apellido_paterno'),
+      'apellido_materno' => $this->input->post('txt_apellido_materno'),
+      'rol_id' => $this->input->post('cbo_rol'),
+      'password' => $this->input->post('txt_password')
+    );
+    $listar = $this->MUsuario->updateUsuario($id,$data); 
+    echo json_encode($listar);
+  }
+
   public function updateUsuario(){
     $id = $this->input->post('txt_id');
     $data = array(
@@ -89,7 +103,8 @@ class CUsuario extends CI_Controller{
       'nombre' => $this->input->post('txt_nombre'),
       'apellido_paterno' => $this->input->post('txt_apellido_paterno'),
       'apellido_materno' => $this->input->post('txt_apellido_materno'),
-      'rol_id' => $this->input->post('cbo_rol')
+      'rol_id' => $this->input->post('cbo_rol'),
+      'password' => '123456'
     );
     $listar = $this->MUsuario->setUsuario($data); 
     echo json_encode($listar);

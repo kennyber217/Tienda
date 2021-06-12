@@ -24,6 +24,7 @@ function getUsuarioData(){
         $('#txt_apellido_paterno').val(i.apellido_paterno);
         $('#txt_apellido_materno').val(i.apellido_materno);
         $('#cbo_rol').val(i.rol_id);
+        $('#txt_password').val(i.password);
       })
       $('#div_btn').hide();
       $('#load').removeClass('load');
@@ -47,10 +48,11 @@ function editarRegistro(){
   var txt_email = $('#txt_email').val();
   var txt_nombre = $('#txt_nombre').val();
   var txt_apellido_paterno = $('#txt_apellido_paterno').val();
-  var txt_apellido_materno = $('#txt_apellido_materno').val();
+  var txt_apellido_materno = $('#txt_apellido_materno').val();  
   var cbo_rol = $('#cbo_rol').val();
+  var txt_password = $('#txt_password').val();
   $.ajax({
-    url:base_url+'CUsuario/'+'updateUsuario',
+    url:base_url+'CUsuario/'+'updateUsuarioData',
     type:'post',
     data: 
     {
@@ -59,7 +61,8 @@ function editarRegistro(){
       txt_nombre:txt_nombre,
       txt_apellido_paterno:txt_apellido_paterno,
       txt_apellido_materno:txt_apellido_materno,
-      cbo_rol:cbo_rol
+      cbo_rol:cbo_rol,
+      txt_password:txt_password
     },
     beforeSend: function(e){
       $('#load').addClass('load');

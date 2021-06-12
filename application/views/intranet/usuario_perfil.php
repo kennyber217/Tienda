@@ -45,10 +45,16 @@
                       <input type="text" class="form-control" id="txt_apellido_materno" name="txt_apellido_materno" autocomplete="off" onKeyUp="activarDivChange();"/>
                     </div>
                   </div>
+                  <div class="form-group row">
+                    <label for="user" class="col-form-label col-sm-2">Contraseña</label>
+                    <div class="col-sm-10">
+                      <input type="password" class="form-control" id="txt_password" name="txt_password" autocomplete="off" onKeyUp="activarDivChange();"/>
+                    </div>
+                  </div>
                 </div>
                 <div class="row col-sm-12" style="" id="div_btn" style="display: none;">
                   <div class="col-sm-2" style="" id="div_btn">
-                    <button type="button" class="btn btn-block btn-danger" onClick="cacelarEditarRegistro();">Cerrar</button>
+                    <button type="button" class="btn btn-block btn-danger" onClick="cacelarEditarRegistro();">Cancelar</button>
                   </div>
                   <div class="col-sm-8" style="" id="div_btn">
                   </div>
